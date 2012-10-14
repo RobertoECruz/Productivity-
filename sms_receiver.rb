@@ -2,10 +2,8 @@
 #localtunnel 4567
 #twilio copy and paste from
 #Sap,a,b
-require 'open-uri'
 require 'sinatra'
 require 'twilio-ruby'
-require 'rubygems'
 
 # set up account details
 @account_sid = 'AC5062036e8c86de58c91a5a8defd91d26'
