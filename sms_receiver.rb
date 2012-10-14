@@ -36,9 +36,9 @@ def split_into_task_and_time(text)
 end
 
 # callback for SMS receive
-get '/sms-hook' do
+post '/sms-hook' do
   p params
-  
+
   t = split_into_task_and_time(params[:Body])
 
   t[1].each do |pair|
