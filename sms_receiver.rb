@@ -39,17 +39,17 @@ end
 post '/sms-hook' do
   p params
 
-  t = split_into_task_and_time(params[:Body])
+  t = split_into_task_and_time(params["Body"])
 
   t[1].each do |pair|
-    r = Reminder.new({task: t[0],
+    r = Reminder.new(task: t[0],
                      day: days[pair[0].to_sym],
-                     hour: pair[1].to_i},
-                     phone: params[:From])
+                     hour: pair[1].to_i,
+                     phone: params["From"])
 
     puts r
 
-    r.save!
+    r.save
   end
   
   twiml = Twilio::TwiML::Response.new do |r|
