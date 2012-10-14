@@ -12,7 +12,7 @@ Mongoid.load!("./mongoid.yml")
 client = Twilio::REST::Client.new(@account_sid, @auth_token)
 
 desc "This task will find all the users who have reminders set for the current hour and send them reminders"
-task :send_reminders => :environment do
+task :send_reminders do
   now = Time.new
 
   reminders = Reminder.where(day: now.day, hour: now.hour).to_a
