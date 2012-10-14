@@ -9,8 +9,8 @@ require './reminder'
 Mongoid.load!("mongoid.yml")
 
 # set up account details
-@account_sid = 'AC5062036e8c86de58c91a5a8defd91d26'
-@auth_token = 'ab4a6af3f955de235068517bad0d8a26'
+@account_sid = 'AC6718c6ad289aa8356207c9bc0648ce85'
+@auth_token = 'e2aa801278603e955176ffa1c963fe73'
 
 # create a twilio client
 client = Twilio::REST::Client.new(@account_sid, @auth_token)
