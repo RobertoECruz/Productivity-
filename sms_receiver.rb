@@ -37,12 +37,12 @@ end
 
 # callback for SMS receive
 post '/' do
-  t_and_t = split_into_task_and_time(params["Body"])
+  t = split_into_task_and_time(params["Body"])
 
-  t_and_t[1].each do |pair|
-    r = Reminder.new(task: t_and_t[0],
+  t[1].each do |pair|
+    r = Reminder.new({task: t[0],
                      day: days[pair[0].to_sym],
-                     hour: pair[1].to_i,
+                     hour: pair[1].to_i},
                      phone: params["From"])
 
     puts r
