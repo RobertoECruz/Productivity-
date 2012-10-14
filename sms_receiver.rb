@@ -42,21 +42,11 @@ post '/sms-hook' do
   t = split_into_task_and_time(params["Body"])
 
   t[1].each do |pair|
-    r = Reminder.new(task: t[0],
-                     day: days[pair[0].to_sym],
-                     hour: pair[1].to_i,
-                     phone: params["From"])
-
-    puts r
-
-    r.save
+    Reminder.create(task: t[0],
+                    day: days[pair[0].to_sym],
+                    hour: pair[1].to_i,
+                    phone: params["From"])
   end
-  
-  twiml = Twilio::TwiML::Response.new do |r|
-    r.Sms "We'll remind you to #{t[0]}! Text back 'stop' to stop."
-  end
-  
-  twiml.text
 end
 
 # Callback for when people visit the site from their browser
