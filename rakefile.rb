@@ -21,5 +21,7 @@ task :send_reminders do
                :to => reminder.phone,
                :body => reminder.task }
     client.account.sms.messages.create(message)
+
+    puts "told somebody to #{reminder.task}"
   end
 end
