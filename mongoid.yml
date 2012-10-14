@@ -6,8 +6,4 @@ development:
         - localhost:27017
 
 production:
-  sessions:
-    default:
-      database: twilio_reminder_production
-      hosts:
-        - mongohq_host:mongohq_port
+  uri: <%= ENV['MONGOLAB_URI'] %>
