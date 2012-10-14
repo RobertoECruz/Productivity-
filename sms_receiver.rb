@@ -4,6 +4,9 @@
 #Sap,a,b
 require 'sinatra'
 require 'twilio-ruby'
+require './reminder'
+
+Mongoid.load!("mongoid.yml")
 
 # set up account details
 @account_sid = 'AC5062036e8c86de58c91a5a8defd91d26'
